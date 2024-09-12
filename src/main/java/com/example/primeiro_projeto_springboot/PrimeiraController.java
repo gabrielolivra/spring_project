@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/PrimeiraController")
 
 public class PrimeiraController {
-
+//ok
 //Criando rota ex: localhost:8080/PrimeiraController/primeiroMetodo
 // O metodo vai ser o @GetMapping ("Caminho do metodo")
 // ao entrar nessa rota ira retornar a função da escrita do metodo
