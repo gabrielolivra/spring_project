@@ -70,8 +70,9 @@ Este documento fornece instruções para a criação e utilização da `Primeira
 
      @GetMapping("/metodoResponseEntity/{id}")
 
-      // O metodo ResponseEntity é usado para retornar status code de requisições de acordo com a regra de negocio, como e mostrado abaixo.
-      // O metodo abaixo instancia uma classe usuario onde o username e Gabriel, no metodo passo um parametro pathParametro de
+      // O metodo ResponseEntity é usado para retornar status code de requisições de acordo com a regra de negocio
+      //, como e mostrado abaixo. O metodo abaixo instancia uma classe usuario onde o username e Gabriel,
+      // no metodo passo um parametro pathParametro de
       //id,  e o metodo metodoResponseEntity verifica o id e retorna um status de acordo com a logica.
      public ResponseEntity<Object> metodoResponseEntity(@PathVariable Integer id){ 
         var usuario = new Usuario("Gabriel");
