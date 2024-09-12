@@ -44,4 +44,38 @@ Este documento fornece instruções para a criação e utilização da `Primeira
            // Exemplo: localhost:8080/primeiraController/metodoQueryParamsAll?id=1&nome=Gabriel&idade=19
            return "Dados: " + allParams.values();
        }
+
+      record Usuario(String username) // Utilizando o metodo record para criar uma classe Usuario
+   
+       @PostMapping("/metodoComBodyParams")
+       public String metodoComBodyParams(@RequestBody Usuario usuario){
+          // No metodo @PostMapping estou passando no parametro do metodo metodoComBodyParams o parametro @RequestBody onde as requisisções são feitas pelo Body. Ex: {"usuario" : "Gabriel" }
+        return usuario.username;
+    }
+
+      @PostMapping("/metodoComHeader")
+      public String metodoComHeader(@RequestHeader("name") String name){
+       // No metodo com header utiliza o parametro @RequestHeader("name") setando o nome do cabeçalho e o tipo de valor dele 
+        return "metodo com headers  " + name;
+    }
+
+      @PostMapping("/metodoComListHeader")
+      public String metodoComListHeader(@RequestHeader Map<String, String> headers){
+         // O metodo com list passa um lista de @RequestHeader onde no map recebe um mapa com chave e valor, podendo assim utilizar N valores.
+        // O metodo entrySet() tras todos os dados, voce pode colocar N headers
+        return "metodo com list headers  " + headers.entrySet();
+    }
+
+     @GetMapping("/metodoResponseEntity/{id}")
+
+      // O metodo ResponseEntity é usado para retornar status code de requisições de acordo com a regra de negocio, como e mostrado abaixo.
+      // O metodo abaixo instancia uma classe usuario onde o username e Gabriel, no metodo passo um parametro pathParametro de id,  e o metodo metodoResponseEntity verifica o id e retorna um status de acordo com a logica.
+     public ResponseEntity<Object> metodoResponseEntity(@PathVariable Integer id){ 
+        var usuario = new Usuario("Gabriel");
+        if(id > 5){
+            return ResponseEntity.status(200).body(usuario);
+        }
+        return ResponseEntity.status(400).body("Usuario com id menor que 5");
+    }
+   
    }
