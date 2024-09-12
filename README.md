@@ -49,7 +49,8 @@ Este documento fornece instruções para a criação e utilização da `Primeira
    
        @PostMapping("/metodoComBodyParams")
        public String metodoComBodyParams(@RequestBody Usuario usuario){
-          // No metodo @PostMapping estou passando no parametro do metodo metodoComBodyParams o parametro @RequestBody onde as requisisções são feitas pelo Body. Ex: {"usuario" : "Gabriel" }
+          // No metodo @PostMapping estou passando no parametro do metodo metodoComBodyParams
+          //o parametro @RequestBody onde as requisisções são feitas pelo Body. Ex: {"usuario" : "Gabriel" }
         return usuario.username;
     }
 
@@ -61,15 +62,17 @@ Este documento fornece instruções para a criação e utilização da `Primeira
 
       @PostMapping("/metodoComListHeader")
       public String metodoComListHeader(@RequestHeader Map<String, String> headers){
-         // O metodo com list passa um lista de @RequestHeader onde no map recebe um mapa com chave e valor, podendo assim utilizar N valores.
-        // O metodo entrySet() tras todos os dados, voce pode colocar N headers
+         // O metodo com list passa um lista de @RequestHeader onde no map recebe um mapa
+        //com chave e valor, podendo assim utilizar N valores.
+       // O metodo entrySet() tras todos os dados, voce pode colocar N headers
         return "metodo com list headers  " + headers.entrySet();
     }
 
      @GetMapping("/metodoResponseEntity/{id}")
 
       // O metodo ResponseEntity é usado para retornar status code de requisições de acordo com a regra de negocio, como e mostrado abaixo.
-      // O metodo abaixo instancia uma classe usuario onde o username e Gabriel, no metodo passo um parametro pathParametro de id,  e o metodo metodoResponseEntity verifica o id e retorna um status de acordo com a logica.
+      // O metodo abaixo instancia uma classe usuario onde o username e Gabriel, no metodo passo um parametro pathParametro de
+      //id,  e o metodo metodoResponseEntity verifica o id e retorna um status de acordo com a logica.
      public ResponseEntity<Object> metodoResponseEntity(@PathVariable Integer id){ 
         var usuario = new Usuario("Gabriel");
         if(id > 5){
