@@ -1,4 +1,4 @@
-package com.example.primeiro_projeto_springboot;
+package com.example.primeiro_projeto_springboot.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
